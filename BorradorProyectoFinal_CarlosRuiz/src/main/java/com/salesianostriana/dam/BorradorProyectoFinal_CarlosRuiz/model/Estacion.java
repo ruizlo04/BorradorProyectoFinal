@@ -22,4 +22,12 @@ public class Estacion {
 	
 	private List<Tren> listaTrenes;
 
+	public Estacion(String nombre, List<Tren> listaTrenes) {
+		super();
+		this.nombre = nombre;
+		this.listaTrenes = listaTrenes;
+	}
+	
+	
+
 }
