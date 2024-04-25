@@ -1,10 +1,8 @@
 package com.salesianostriana.dam.BorradorProyectoFinal_CarlosRuiz.model;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.ForeignKey;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -26,7 +24,16 @@ public class Billete {
 	private int numClientes;
 	
 	@ManyToOne
-	@JoinColumn(foreignKey = @ForeignKey(name = "fk_billete_cliente"))
 	private Cliente cliente;
+
+	public Billete(double precio, boolean extra, int numClientes, Cliente cliente) {
+		super();
+		this.precio = precio;
+		this.extra = extra;
+		this.numClientes = numClientes;
+		this.cliente = cliente;
+	}
+	
+	
 
 }
