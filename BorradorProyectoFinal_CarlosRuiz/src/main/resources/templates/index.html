@@ -103,13 +103,11 @@
           </thead>
           <tbody class="bg-warning-subtle">
       
-      <tr th:each="producto : ${productList}">
-        <td th:text="${productoStat.count}"></td>
-        <td th:text="${producto.description}">Sevilla-Madrid</td>
-        
-        <td th:text="${#numbers.formatDecimal(producto.price, 1, 2)+' €'}">75€</td>
-        
-        <td th:text = "${#temporals.format(producto.date, 'dd-MM-YY HH:mm')}">8-July-2023</td>
+      <tr th:each="tren : ${trenList}">
+        <td th:text="${trenStat.count}"></td>
+        <td th:text="${tren.tipoTren}">Sevilla-Madrid</td>
+		
+        <td th:text = "${#temporals.format(tren.horario, 'dd-MM-YY HH:mm')}">8-July-2023</td>
         <td><span class="offer text-danger">Special offer!</span></td>
       
       </tr>

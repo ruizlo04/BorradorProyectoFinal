@@ -26,12 +26,11 @@ public class Billete {
 	@ManyToOne
 	private Cliente cliente;
 
-	public Billete(double precio, boolean extra, int numClientes, Cliente cliente) {
+	public Billete(double precio, boolean extra, int numClientes) {
 		super();
 		this.precio = precio;
 		this.extra = extra;
 		this.numClientes = numClientes;
-		this.cliente = cliente;
 	}
 	
 	

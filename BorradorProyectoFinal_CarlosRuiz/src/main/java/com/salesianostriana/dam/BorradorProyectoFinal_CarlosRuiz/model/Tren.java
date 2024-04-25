@@ -41,7 +41,7 @@ public class Tren {
     @Builder.Default
     @OneToMany(
 			mappedBy = "tren",
-			fetch = FetchType.EAGER,
+			fetch = FetchType.EAGER, 
 			cascade = CascadeType.ALL,
 			orphanRemoval = true
     )
@@ -56,6 +56,13 @@ public class Tren {
 		this.tipoTren = tipoTren;
 		this.listaClientes = listaClientes;
 	}
+
+	public Tren(String tipoTren) {
+		super();
+		this.tipoTren = tipoTren;
+	}
+	
+	
 
 	
 }
