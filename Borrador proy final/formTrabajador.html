@@ -9,9 +9,9 @@
     <title>Formulario Trabajador</title>
 </head>
 <body>
-	<header class="mb-2" th:replace="~{fragmentos/navbar::header}"></header>
+	<header th:replace="~{fragmentos/navbar::header}"></header>
 	<form method="POST" th:action="addTrabajador" th:object="${trabajadorForm}">
-				<table class="text-center m-auto border border-black m-0 bg-info-subtle" width="50%%">
+				<table class="tablaTrabajador text-center m-auto border border-black m-0 bg-info-subtle" width="50%%">
 					<tr>
 						<td><label for="nombre">Nombre</label></td>
 						<td><input type="text" th:field="*{nombre}" /></td>

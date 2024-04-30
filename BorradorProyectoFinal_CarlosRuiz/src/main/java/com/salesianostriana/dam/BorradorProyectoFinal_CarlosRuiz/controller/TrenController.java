@@ -19,4 +19,9 @@ public class TrenController {
 		return "index";
 	}
 
+	@GetMapping ("/admin")
+	public String controlarAdmin(Model model) {
+		model.addAttribute("trenList", trenService.getLista());
+		return "admin";
+	}
 }
