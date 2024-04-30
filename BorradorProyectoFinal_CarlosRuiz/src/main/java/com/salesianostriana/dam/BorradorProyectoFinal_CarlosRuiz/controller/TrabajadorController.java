@@ -22,14 +22,14 @@ public class TrabajadorController {
 		Trabajador t = new Trabajador(); 		
 		model.addAttribute("trabajadorForm", t);
 		
-		return "form";
+		return "formTrabajador";
 		
 	}
 	
 	@PostMapping ("/addTrabajador")
 	public String submit(@ModelAttribute("trabajadorForm") Trabajador t,  Model model) {
 		model.addAttribute("trabajador", t);
-		return "form";
+		return "formTrabajador";
 	}
 	
 	@GetMapping("/list")
