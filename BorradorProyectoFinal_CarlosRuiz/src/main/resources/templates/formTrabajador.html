@@ -11,27 +11,31 @@
     <title>Formulario Trabajador</title>
 </head>
 <body class="bodyTrabajador">
-    <header class="mb-2" th:replace="~{fragmentos/navbar::header}"></header>
+    <header class="mb-2" th:replace="~{fragmentos/navbarAdmin::header}"></header>
     <section class="container">
         <div class="row my-5">
-        <div class="col-sm-12 col-md-12 col-lg-12">
-            <form action="" method="POST" class="formucolor">
+        <div class="col-sm-12 col-md-12 col-lg-12">	
+            <form action="" method="POST" class="formucolor" th:action="addTrabajador" th:object="${trabajadorForm}">
                 <h3 class="display-5 text-primary text-center">REGISTRO TRABAJADOR</h3>
                 <div class="form-group">
-                    <label>Nombre:</label>
-                    <input type="text" placeholder="Introduzca nombre completo" maxlength="20" id="nombre" name="nombre" class="form-control">
+                    <label for="nombre">Nombre:</label>
+                    <input id="nombre" name="nombre" type="text" th:field="*{nombre}" 
+						placeholder="Introduzca nombre completo" maxlength="20" class="form-control">
                 </div>
                 <div class="form-group">
-                    <label>Apellido:</label>
-                    <input type="text" placeholder="Introduzca apellido completo" maxlength="20" id="apellido" name="apellidos" class="form-control">
+                    <label for="apellidos">Apellido:</label>
+                    <input id="apellidos" name="apellidos" th:field="*{apellidos}" type="text" 
+						placeholder="Introduzca apellido completo" maxlength="20"class="form-control">
                 </div>
                 <div class="form-group">
-                    <label>DNI:</label>
-                    <input type="text" placeholder="Introduzca dni" maxlength="20" id="dni" name="dni" class="form-control">
+                    <label for="dni">DNI:</label>
+                    <input id="dni" name="dni" th:field="*{dni}" type="text" 
+						placeholder="Introduzca dni" maxlength="20" class="form-control">
                 </div>
                 <div class="form-group">
-                    <label>Sueldo:</label>
-                    <input type="number" placeholder="Introduzca sueldo" id="sueldo" name="sueledo" class="form-control">
+                    <label for="sueldo">Sueldo:</label>
+                    <input id="sueldo" name="sueldo" th:field="*{sueldo}" type="number" 
+						placeholder="Introduzca sueldo" class="form-control">
                 </div>
                 <div class="form-group align-items-center text-center m-5">
                     <button type="submit" class="btn btn-warning">Enviar</button>

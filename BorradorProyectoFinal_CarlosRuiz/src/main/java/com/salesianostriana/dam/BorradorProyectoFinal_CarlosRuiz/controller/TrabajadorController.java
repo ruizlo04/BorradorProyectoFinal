@@ -28,14 +28,15 @@ public class TrabajadorController {
 	
 	@PostMapping ("/addTrabajador")
 	public String submit(@ModelAttribute("trabajadorForm") Trabajador t,  Model model) {
-		model.addAttribute("trabajador", t);
-		return "formTrabajador";
+		trabajadorService.save(t);
+		model.addAttribute("trabajadorList", trabajadorService.findAll());
+		return "admin";
 	}
 	
-	@GetMapping("/list")
-	public String lista(Model model) {
-		model.addAttribute("trabajadores", trabajadorService.findAll());
-		return "listaTrabajador";
+	@GetMapping ("/listarTrabajadores")
+	public String listarTrabajadores(@ModelAttribute("trabajadorForm") Trabajador t,  Model model) {
+		model.addAttribute("trabajadorList", trabajadorService.findAll());
+		return "admin";
 	}
 
 }

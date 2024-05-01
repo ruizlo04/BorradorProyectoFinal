@@ -8,3 +8,5 @@ INSERT INTO Trabajador (cod_trabajador, nombre, apellidos, dni, sueldo) VALUES (
 INSERT INTO Trabajador (cod_trabajador, nombre, apellidos, dni, sueldo) VALUES (8, 'Marta', 'Hernández Ruiz', '09876543H', 3200.0);
 INSERT INTO Trabajador (cod_trabajador, nombre, apellidos, dni, sueldo) VALUES (9, 'Daniel', 'Gómez Sánchez', '65432187I', 2700.0);
 INSERT INTO Trabajador (cod_trabajador, nombre, apellidos, dni, sueldo) VALUES (10, 'Patricia', 'Fernández Martínez', '32187654J', 2800.0);
+
+ALTER SEQUENCE Trabajador_seq RESTART WITH 60;

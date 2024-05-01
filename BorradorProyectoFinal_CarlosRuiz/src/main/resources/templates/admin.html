@@ -9,7 +9,7 @@
     <title>Admin</title>
 </head>
 <body>
-    <header th:replace="~{fragmentos/navbar::header}"></header>
+    <header th:replace="~{fragmentos/navbarAdmin::header}"></header>
 
     <div class="container p-5">
         <div class="row d-flex justify-content-center align-items-center">
@@ -17,8 +17,10 @@
                 <div class="panel p-0 border-5">
                     <div class="panel-heading text-white border-0 p-2">
                         <div class="row">
-                            <div class="col-sm-12 col-xs-12">
-                                <a href="#" class="btn btn-sm btn-primary pull-left fs-6 fw-bolder bg-black border-0 p-2"><i class="fa fa-plus-circle"></i> Add New</a>
+                            <div type="showForm" class="col-sm-12 col-xs-12">
+                                <a type="showForm" href="#" class="btn btn-sm btn-primary pull-left fs-6 fw-bolder 
+									bg-black border-0 p-2"><i class="fa fa-plus-circle"></i> Add New</a>
+								<button type="showForm" class="btn btn-warning">Buscar trabajador</button>
                             </div>
                         </div>
                     </div>
@@ -28,78 +30,23 @@
                                 <tr>
                                     <th class="text-white bg-secondary p-3">Id</th>
                                     <th class="text-white bg-secondary p-3">Nombre</th>
-                                    <th class="text-white bg-secondary p-3">Edad</th>
                                     <th class="text-white bg-secondary p-3">Dni</th>
                                     <th class="text-white bg-secondary p-3">Sueldo</th>
                                     <th class="text-white bg-secondary p-3">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr class="align-middle">
-                                    <td>1</td>
-                                    <td>Vincent Williamson</td>
-                                    <td>31</td>
-                                    <td>456789123A</td>
-                                    <td>1250.00€</td>
+								 <tr th:each="trabajador : ${trabajadorList}">
+									<td th:text="${trabajador.codTrabajador}"></td>
+									<td th:text="${trabajador.nombre}">Paco</td>
+									<td th:text="${trabajador.dni}">1A</td>
+									<td th:text="${#numbers.formatDecimal(trabajador.sueldo, 1, 2)+' €'}">$350</td>								
                                     <td>
                                         <ul class="action-list p-0 m-0  .list-group-numbered">
                                             <li><a href="form.html" th:href="@{/form.html}" class="btn btn-primary"><i class="fa fa-pencil-alt"></i></a></li>
                                             <li><a href="#" class="btn btn-danger"><i class="fa fa-times"></i></a></li>
                                         </ul>
                                     </td>
-                                </tr>
-                                <tr class="align-middle">
-                                    <td>2</td>
-                                    <td>Taylor Reyes</td>
-                                    <td>22</td>
-                                    <td>456789123B</td>
-                                    <td>1600.00€</td>
-                                    <td>
-                                        <ul class="action-list p-0 m-0">
-                                            <li><a href="#" class="btn btn-primary"><i class="fa fa-pencil-alt"></i></a></li>
-                                            <li><a href="#" class="btn btn-danger"><i class="fa fa-times"></i></a></li>
-                                        </ul>
-                                    </td>
-                                </tr>
-                                <tr class="align-middle">
-                                    <td>3</td>
-                                    <td>Justin Block</td>
-                                    <td>26</td>
-                                    <td>456789123C</td>
-                                    <td>1100.60€</td>
-                                    <td>
-                                        <ul class="action-list p-0 m-0">
-                                            <li><a href="#" class="btn btn-primary"><i class="fa fa-pencil-alt"></i></a></li>
-                                            <li><a href="#" class="btn btn-danger"><i class="fa fa-times"></i></a></li>
-                                        </ul>
-                                    </td>                                
-                                </tr>
-                                <tr class="align-middle">
-                                    </td>
-                                    <td>4</td>
-                                    <td>Sean Guzman</td>
-                                    <td>26</td>
-                                    <td>456789123D</td>
-                                    <td>1505.75€</td>
-                                    <td>
-                                        <ul class="action-list p-0 m-0">
-                                            <li><a href="#" class="btn btn-primary"><i class="fa fa-pencil-alt"></i></a></li>
-                                            <li><a href="#" class="btn btn-danger"><i class="fa fa-times"></i></a></li>
-                                        </ul>
-                                    </td>                                
-                                </tr>
-                                <tr class="align-middle">
-                                    <td>5</td>
-                                    <td>Keith Carter</td>
-                                    <td>24</td>
-                                    <td>456789123E</td>
-                                    <td>1250.00€</td>
-                                    <td>
-                                        <ul class="action-list p-0 m-0">
-                                            <li><a href="#" class="btn btn-primary"><i class="fa fa-pencil-alt"></i></a></li>
-                                            <li><a href="#" class="btn btn-danger"><i class="fa fa-times"></i></a></li>
-                                        </ul>
-                                    </td>                                
                                 </tr>
                             </tbody>
                         </table>
