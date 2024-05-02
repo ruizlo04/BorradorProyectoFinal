@@ -16,7 +16,7 @@ public class TrenController {
 	@GetMapping ("/trenes")
 	public String controlarListaTrenes(Model model) {
 		model.addAttribute("trenList", trenService.getLista());
-		return "index";
+		return "listaTren";
 	}
 
 	@GetMapping ("/admin")

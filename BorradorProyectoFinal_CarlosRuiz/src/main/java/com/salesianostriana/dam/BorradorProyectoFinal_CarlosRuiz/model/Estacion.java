@@ -44,6 +44,12 @@ public class Estacion {
 		this.nombre = nombre;
 		this.listaTrenes = listaTrenes;
 	}
+
+	public Estacion(long id, String nombre) {
+		super();
+		this.id = id;
+		this.nombre = nombre;
+	}
 	
 	
 

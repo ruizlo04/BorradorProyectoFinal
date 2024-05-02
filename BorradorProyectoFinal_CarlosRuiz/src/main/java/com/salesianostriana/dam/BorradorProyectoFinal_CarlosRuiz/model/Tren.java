@@ -31,7 +31,7 @@ public class Tren {
 	@Id @GeneratedValue
 	private long id;
 	
-	@DateTimeFormat(iso =ISO.DATE_TIME)
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDateTime horario;
 	
 	private String tipoTren;
@@ -61,8 +61,14 @@ public class Tren {
 		super();
 		this.tipoTren = tipoTren;
 	}
-	
-	
+
+	public Tren(long id, LocalDateTime horario, String tipoTren, Estacion estacion) {
+		super();
+		this.id = id;
+		this.horario = horario;
+		this.tipoTren = tipoTren;
+		this.estacion = estacion;
+	}
 
 	
 }

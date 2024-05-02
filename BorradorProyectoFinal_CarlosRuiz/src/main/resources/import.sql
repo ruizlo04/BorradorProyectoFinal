@@ -10,3 +10,15 @@ INSERT INTO Trabajador (cod_trabajador, nombre, apellidos, dni, sueldo) VALUES (
 INSERT INTO Trabajador (cod_trabajador, nombre, apellidos, dni, sueldo) VALUES (10, 'Patricia', 'Fernández Martínez', '32187654J', 2800.0);
 
 ALTER SEQUENCE Trabajador_seq RESTART WITH 60;
+
+
+INSERT INTO Tren (id, horario, tipo_tren) VALUES (1, '2024-04-27T10:00:00', 'Regional');
+INSERT INTO Tren (id, horario, tipo_tren) VALUES (2, '2024-04-28T14:30:00', 'Ave');
+INSERT INTO Tren (id, horario, tipo_tren) VALUES (3, '2024-04-29T08:45:00', 'Media Distancia');
+
+ALTER SEQUENCE Tren_seq RESTART WITH 53;
+
+INSERT INTO Estacion (id, nombre) VALUES (1, 'Estación Central');
+INSERT INTO Estacion (id, nombre) VALUES (2, 'Estación Norte');
+INSERT INTO Estacion (id, nombre) VALUES (3, 'Estación Sur');
+
