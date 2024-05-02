@@ -49,6 +49,10 @@ public class Tren {
 	
 	@ManyToOne
 	private Estacion estacion;
+	
+	private int numPasajeros;
+	
+	private boolean oferta;
 
 	public Tren(LocalDateTime horario, String tipoTren, List<Cliente> listaClientes) {
 		super();
@@ -62,12 +66,13 @@ public class Tren {
 		this.tipoTren = tipoTren;
 	}
 
-	public Tren(long id, LocalDateTime horario, String tipoTren, Estacion estacion) {
+	public Tren(long id, LocalDateTime horario, String tipoTren, Estacion estacion, int numPasajeros) {
 		super();
 		this.id = id;
 		this.horario = horario;
 		this.tipoTren = tipoTren;
 		this.estacion = estacion;
+		this.numPasajeros = numPasajeros;
 	}
 
 	

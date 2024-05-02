@@ -91,28 +91,40 @@
   
       <hr class="w-50 m-auto pt-5">
         <h1 class="text-info text-center">Ofertas</h1>
-        <table class="m-auto border border-black mb-5">
-          <thead class="bg-info text-white">
-            <tr>
-              <th>Número</th>
-              <th>Trayectoria</th>
-              <th>Precio</th>
-              <th>Disponible desde</th>
-              <th>Oferta</th>
-            </tr>
-          </thead>
-          <tbody class="bg-warning-subtle">
-      
-      <tr th:each="tren : ${trenList}">
-        <td th:text="${trenStat.count}"></td>
-        <td th:text="${tren.tipoTren}">Sevilla-Madrid</td>
-		
-        <td th:text = "${#temporals.format(tren.horario, 'dd-MM-YY HH:mm')}">8-July-2023</td>
-        <td><span class="offer text-danger">Special offer!</span></td>
-      
-      </tr>
-          </tbody>
-        </table>
+		<div class="container p-5">
+		        <div class="row d-flex justify-content-center align-items-center">
+		            <div class="col-md-offset-1 col-md-10">
+		                <div class="panel p-0 border-5">
+							<div class="panel-body table-responsive p-0">
+							     	<table class="table">
+							         <thead>
+										<tr>
+											<th class="text-white bg-secondary p-3">Id</th>
+											<th class="text-white bg-secondary p-3">Tipo Tren</th>
+											<th class="text-white bg-secondary p-3">Horario</th>
+											<th class="text-white bg-secondary p-3">Num pasajeros</th>
+											<th class="text-white bg-secondary p-3">Estación</th>
+											<th class="text-white bg-secondary p-3">Oferta</th>					
+										</tr>
+							         </thead>
+							         <tbody>
+										<tr th:each="tren : ${trenList}">
+											<div th:if="${tren.oferta}">
+												<td th:text="${tren.id}"></td>
+												<td th:text="${tren.tipoTren}"></td>
+												<td th:text="${#temporals.format(tren.horario)}"></td>
+												<td th:text="${tren.numPasajeros}"></td>
+												<td th:text="${tren.estacion.nombre}"></td>
+												<td><span class="offer text-danger">Special offer!</span></td>
+											</div>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
       <hr class="w-50 m-auto pt-5">
     </div>
 

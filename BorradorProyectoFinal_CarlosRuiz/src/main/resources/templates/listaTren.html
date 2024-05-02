@@ -21,7 +21,7 @@
                                 <a type="showForm" href="#" class="btn btn-sm btn-primary pull-left fs-6 fw-bolder 
 									bg-black border-0 p-2"><i class="fa fa-plus-circle"></i> Añadir tren</a>
 								<button class="btn btn-warning my-2 my-sm-0" type="submit">Buscar tren</button>
-								<input class="form-control my-2 my-sm-0" type="search" placeholder="Buscar trabajador" aria-label="Search">
+								<input class="form-control my-2 my-sm-0" type="search" placeholder="Buscar tren" aria-label="Search">
                             </div>
                         </div>
                     </div>
@@ -32,6 +32,7 @@
                                     <th class="text-white bg-secondary p-3">Id</th>
                                     <th class="text-white bg-secondary p-3">Tipo Tren</th>
                                     <th class="text-white bg-secondary p-3">Horario</th>
+									<th class="text-white bg-secondary p-3">Num pasajeros</th>
 									<th class="text-white bg-secondary p-3">Estación</th>
 									
                                 </tr>
@@ -41,6 +42,8 @@
 									<td th:text="${tren.id}"></td>
 									<td th:text="${tren.tipoTren}"></td>
 									<td th:text="${#temporals.format(tren.horario)}"></td>
+									<td th:text="${tren.numPasajeros}"></td>
+									<td th:text="${tren.estacion.nombre}"></td>
                                 </tr>
                             </tbody>
                         </table>

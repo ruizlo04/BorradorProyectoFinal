@@ -15,28 +15,40 @@
     <section class="container">
         <div class="row my-5">
         <div class="col-sm-12 col-md-12 col-lg-12">	
-            <form action="" method="POST" class="formucolor" th:action="addTrabajador" th:object="${trabajadorForm}">
-                <h3 class="display-5 text-primary text-center">REGISTRO TRABAJADOR</h3>
+            <form action="" method="POST" class="formucolor" th:action="addTren" th:object="${trenForm}">
+                <h3 class="display-5 text-primary text-center">REGISTRO TREN</h3>
                 <div class="form-group">
-                    <label for="nombre">Nombre:</label>
-                    <input id="nombre" name="nombre" type="text" th:field="*{nombre}" 
-						placeholder="Introduzca nombre completo" maxlength="20" class="form-control">
+                    <label for="tipoTren">Tipo Tren:</label>
+                    <input id="tipoTren" name="tipoTren" type="text" th:field="*{tipoTren}" 
+						placeholder="Introduzca tipo tren" maxlength="20" class="form-control">
                 </div>
                 <div class="form-group">
-                    <label for="apellidos">Apellido:</label>
-                    <input id="apellidos" name="apellidos" th:field="*{apellidos}" type="text" 
-						placeholder="Introduzca apellido completo" maxlength="20"class="form-control">
+					<label for="estacion">Estacion:</label>
+					<select id="estacion" type="text" placeholder="Introduzca estacion" class="form-control" th:field="*{estacion}">
+						<option th:value="estacionCentral" >Estación Central</option>
+						<option th:value="estacionNorte" >Estación Norte</option>
+						<option th:value="estacionSur" >Estación Sur</option>
+					</select>
                 </div>
                 <div class="form-group">
-                    <label for="dni">DNI:</label>
-                    <input id="dni" name="dni" th:field="*{dni}" type="text" 
-						placeholder="Introduzca dni" maxlength="20" class="form-control">
+                    <label for="numPasajeros">Número pasajeros:</label>
+                    <input id="numPasajeros" name="numPasajeros" th:field="*{numPasajeros}" type="number" 
+						placeholder="Introduzca número pasajeros" class="form-control">
                 </div>
                 <div class="form-group">
-                    <label for="sueldo">Sueldo:</label>
-                    <input id="sueldo" name="sueldo" th:field="*{sueldo}" type="number" 
-						placeholder="Introduzca sueldo" class="form-control" min="0">
+					<label for="oferta">Oferta</label>
+					<select	id="oferta" name="oferta" class="form-control" placeholder="Introduzca oferta" type="number" th:field="*{oferta}">
+					    <option th:value="true" data-th-field="*{oferta}">En oferta</option>
+					    <option th:value="false" data-th-field="*{oferta}">Sin oferta</option>
+					</select>
                 </div>
+				<div class="form-group">
+				     <label for="horario">Horario:</label>
+					 <input id="horario" name="horario" th:field="*{horario}" type="text" 
+					        placeholder="Introduzca horario" class="form-control" th:value="${tren.horario}">
+
+
+				</div>
                 <div class="form-group align-items-center text-center m-5">
                     <button type="submit" class="btn btn-warning">Enviar</button>
                     <a href="" class="btn btn-danger">Limpiar</a>
