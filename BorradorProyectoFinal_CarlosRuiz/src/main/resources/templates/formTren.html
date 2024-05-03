@@ -23,17 +23,16 @@
 						placeholder="Introduzca tipo tren" maxlength="20" class="form-control">
                 </div>
                 <div class="form-group">
-					<label for="estacion">Estacion:</label>
-					<select id="estacion" type="text" placeholder="Introduzca estacion" class="form-control" th:field="*{estacion}">
-						<option th:value="estacionCentral" >Estación Central</option>
-						<option th:value="estacionNorte" >Estación Norte</option>
-						<option th:value="estacionSur" >Estación Sur</option>
-					</select>
+					<label for="estacion">Estación:</label>
+						<select id="estacion" name="estacion" class="form-control" th:field="*{estacion.nombre}">
+					        <option value="">Selecciona una estación</option>
+					        <option th:each="estacion : ${estacionList}" th:value="${estacion.nombre}" th:text="${estacion.nombre}"></option>
+						</select>
                 </div>
                 <div class="form-group">
                     <label for="numPasajeros">Número pasajeros:</label>
                     <input id="numPasajeros" name="numPasajeros" th:field="*{numPasajeros}" type="number" 
-						placeholder="Introduzca número pasajeros" class="form-control">
+						placeholder="Introduzca número pasajeros" class="form-control" min="0">
                 </div>
                 <div class="form-group">
 					<label for="oferta">Oferta</label>
@@ -44,13 +43,12 @@
                 </div>
 				<div class="form-group">
 				     <label for="horario">Horario:</label>
-					 <input id="horario" name="horario" th:field="*{horario}" type="text" 
-					        placeholder="Introduzca horario" class="form-control" th:value="${tren.horario}">
-
+					 <input id="horario" name="horario" th:field="*{horario}" type="datetime-local" 
+					        placeholder="Introduzca horario" class="form-control" th:value="${#dates.format(horario,'yyyy-MM-dd')}">
 
 				</div>
                 <div class="form-group align-items-center text-center m-5">
-                    <button type="submit" class="btn btn-warning">Enviar</button>
+                    <button type="submitTren" class="btn btn-warning">Enviar</button>
                     <a href="" class="btn btn-danger">Limpiar</a>
                 </div>
             </form>

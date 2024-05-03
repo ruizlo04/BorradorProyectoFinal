@@ -15,6 +15,8 @@ INSERT INTO Estacion (id, nombre) VALUES (1, 'Estación Central');
 INSERT INTO Estacion (id, nombre) VALUES (2, 'Estación Norte');
 INSERT INTO Estacion (id, nombre) VALUES (3, 'Estación Sur');
 
+ALTER SEQUENCE Estacion_seq RESTART WITH 53;
+
 INSERT INTO Tren (id, horario, tipo_tren, num_pasajeros, estacion_id, oferta) VALUES (1, '2024-04-27T10:00:00', 'Media Distancia', 50, 1, true);
 INSERT INTO Tren (id, horario, tipo_tren, num_pasajeros, estacion_id, oferta) VALUES (2, '2024-04-28T14:30:00', 'Larga Distancia', 55, 2, false);
 INSERT INTO Tren (id, horario, tipo_tren, num_pasajeros, estacion_id, oferta) VALUES (3, '2024-04-29T08:45:00', 'Media Distancia', 50, 3, true);

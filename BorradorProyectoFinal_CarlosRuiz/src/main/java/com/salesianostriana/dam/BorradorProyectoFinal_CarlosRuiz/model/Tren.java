@@ -1,11 +1,10 @@
 package com.salesianostriana.dam.BorradorProyectoFinal_CarlosRuiz.model;
 
-import java.time.LocalDateTime;
+import java.time.LocalDateTime; 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.format.annotation.DateTimeFormat.ISO;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -47,7 +46,9 @@ public class Tren {
     )
 	private List<Cliente> listaClientes = new ArrayList<>();
 	
-	@ManyToOne
+	@ManyToOne(
+			cascade = CascadeType.ALL
+			)
 	private Estacion estacion;
 	
 	private int numPasajeros;
