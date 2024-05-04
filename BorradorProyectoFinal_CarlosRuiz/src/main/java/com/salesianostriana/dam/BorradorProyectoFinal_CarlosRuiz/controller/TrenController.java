@@ -35,6 +35,7 @@ public class TrenController {
 	@GetMapping("/tren")
 	public String showForm(Model model) {
 	    Tren t = new Tren();
+	    model.addAttribute("trenList", trenService.findAll());
 	    model.addAttribute("estacionList", estacionService.findAll());
 	    model.addAttribute("trenForm", t);
 	    return "formTren";
@@ -44,6 +45,6 @@ public class TrenController {
 	public String submitTren(@ModelAttribute("trenForm") Tren t, Model model) {
 		trenService.save(t);
 		model.addAttribute("trenList", trenService.findAll());
-		return "listaTren";
+		return "redirect:/trenes";
 	}
 }

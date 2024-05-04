@@ -6,17 +6,19 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.salesianostriana.dam.BorradorProyectoFinal_CarlosRuiz.model.Trabajador;
 import com.salesianostriana.dam.BorradorProyectoFinal_CarlosRuiz.service.TrabajadorService;
 
 @Controller
+@RequestMapping("/trabajador")
 public class TrabajadorController {
 	
 	@Autowired
 	private TrabajadorService trabajadorService;
 	
-	@GetMapping ("/trabajador")
+	@GetMapping ("/trabajadores")
 	public String showForm(Model model) {
 		
 		Trabajador t = new Trabajador(); 		
