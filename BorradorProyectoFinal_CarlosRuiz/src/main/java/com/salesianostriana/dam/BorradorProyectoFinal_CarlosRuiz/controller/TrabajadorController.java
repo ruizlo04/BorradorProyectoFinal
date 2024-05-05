@@ -18,7 +18,7 @@ public class TrabajadorController {
 	@Autowired
 	private TrabajadorService trabajadorService;
 	
-	@GetMapping ("/trabajadores")
+	@GetMapping ("/registrarTrabajador")
 	public String showForm(Model model) {
 		
 		Trabajador t = new Trabajador(); 		
@@ -32,7 +32,7 @@ public class TrabajadorController {
 	public String submit(@ModelAttribute("trabajadorForm") Trabajador t,  Model model) {
 		trabajadorService.save(t);
 		model.addAttribute("trabajadorList", trabajadorService.findAll());
-		return "admin";
+		return "redirect:/trabajador/listarTrabajadores";
 	}
 	
 	@GetMapping ("/listarTrabajadores")

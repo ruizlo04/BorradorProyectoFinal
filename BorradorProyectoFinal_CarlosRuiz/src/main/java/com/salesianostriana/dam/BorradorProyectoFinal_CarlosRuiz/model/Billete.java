@@ -25,6 +25,9 @@ public class Billete {
 	
 	@ManyToOne
 	private Cliente cliente;
+	
+	@ManyToOne
+	private Tren tren;
 
 	public Billete(double precio, boolean extra, int numClientes) {
 		super();
