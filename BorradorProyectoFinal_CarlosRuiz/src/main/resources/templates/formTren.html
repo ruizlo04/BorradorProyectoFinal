@@ -18,6 +18,9 @@
             <form action=""	th:action="${trenForm.id != 0} ? @{/trenes/editar/submit} : @{/trenes/addTren}" method="POST" class="formucolor" th:object="${trenForm}">
                 <h3 class="display-5 text-primary text-center">REGISTRO TREN</h3>
 				<div class="form-group">
+					<input th:if="${trenForm.id != 0}" type="hidden" name="id" th:field="*{id}" />
+				</div>
+				<div class="form-group">
 				    <label for="tipoTren">Tipo Tren:</label>
 					<select id="tipoTren" name="tipoTren" class="form-control" th:field="*{tipoTren}">
 					    <option value="Media distancia">Media distancia</option>
@@ -28,7 +31,7 @@
                 <div class="form-group">
 					<label for="estacion">Estación:</label>
 						<select id="estacion" name="estacionId" class="form-control" th:field="*{estacion.id}">
-					    	<option th:each="estacion : ${estacionList}" th:value="${estacion.id}" th:text="${estacion.nombre}" th:selected="${estacion.id == trenForm.estacion.id}"></option>
+					    	<option th:each="estacion : ${estacionList}" th:value="${estacion.id}" th:text="${estacion.nombre}"></option>
 						</select>
                 </div>
                 <div class="form-group">
@@ -46,7 +49,7 @@
 				<div class="form-group">
 				     <label for="horario">Horario:</label>
 					 <input id="horario" name="horario" th:field="*{horario}" type="datetime-local" 
-					        placeholder="Introduzca horario" class="form-control" th:value="${#temporals.format(horario,'yyyy-MM-dd')}">
+					        placeholder="Introduzca horario" class="form-control" th:value="${#temporals.format(horario,'yyyy-MM-ddTHH:mm')}">
 
 				</div>
                 <div class="form-group align-items-center text-center m-5">

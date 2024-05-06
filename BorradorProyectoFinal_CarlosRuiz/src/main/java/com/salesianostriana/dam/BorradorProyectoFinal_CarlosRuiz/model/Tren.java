@@ -30,7 +30,7 @@ public class Tren {
 	@Id @GeneratedValue
 	private long id;
 	
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
 	private LocalDateTime horario;
 	
 	private String tipoTren;
@@ -46,9 +46,7 @@ public class Tren {
     )
 	private List<Cliente> listaClientes = new ArrayList<>();
 	
-	@ManyToOne(
-			cascade = CascadeType.ALL
-			)
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.DETACH)
 	private Estacion estacion;
 	
 	private int numPasajeros;

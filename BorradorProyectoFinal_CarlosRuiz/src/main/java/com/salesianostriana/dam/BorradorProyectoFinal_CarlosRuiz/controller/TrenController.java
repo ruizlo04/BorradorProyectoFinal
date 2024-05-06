@@ -1,5 +1,6 @@
 package com.salesianostriana.dam.BorradorProyectoFinal_CarlosRuiz.controller;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -64,12 +65,15 @@ public class TrenController {
 	    Optional<Tren> aEditarOptional = trenService.findById(id);
 	    if (aEditarOptional.isPresent()) {
 	        Tren aEditar = aEditarOptional.get(); 
+	        List<Estacion> estacionList = estacionService.findAll();
 	        model.addAttribute("trenForm", aEditar);
+	        model.addAttribute("estacionList", estacionList);
 	        return "formTren";
 	    } else {
 	        return "redirect:/trenes/listarTrenes";
 	    }
 	}
+
 
 	
 	@PostMapping("/editar/submit")
