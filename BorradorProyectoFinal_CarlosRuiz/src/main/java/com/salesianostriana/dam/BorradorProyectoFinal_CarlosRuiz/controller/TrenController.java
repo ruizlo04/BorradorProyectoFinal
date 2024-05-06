@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -57,4 +58,30 @@ public class TrenController {
 	    }
 		return "redirect:/trenes/listarTrenes";
 	}
+	
+	@GetMapping("/editar/{id}")
+	public String showFormEdit(@PathVariable("id") long id, Model model) {
+	    Optional<Tren> aEditarOptional = trenService.findById(id);
+	    if (aEditarOptional.isPresent()) {
+	        Tren aEditar = aEditarOptional.get(); 
+	        model.addAttribute("trenForm", aEditar);
+	        return "formTren";
+	    } else {
+	        return "redirect:/trenes/listarTrenes";
+	    }
+	}
+
+	
+	@PostMapping("/editar/submit")
+	public String procesarFormularioEdit(@ModelAttribute("trenForm") Tren t) {
+		trenService.edit(t);
+		return "redirect:/trenes/listarTrenes";
+	}
+	
+	@GetMapping("/borrar/{id}")
+	public String borrar(@PathVariable("id") Long id) {
+		trenService.deleteById(id);
+		return "redirect:/trenes/listarTrenes";
+	}
 }
+
