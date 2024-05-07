@@ -14,9 +14,12 @@
     <header class="mb-2" th:replace="~{fragmentos/navbarAdmin::header}"></header>
     <section class="container">
         <div class="row my-5">
-        <div class="col-sm-12 col-md-12 col-lg-12">    
-            <form action="" method="POST" class="formucolor" th:action="addTrabajador" th:object="${trabajadorForm}">
+        <div class="col-sm-12 col-md-12 col-lg-12">
+			<form action=""	th:action="${trabajadorForm.codTrabajador != 0} ? @{/trabajador/editar/submit} : @{/trabajador/addTrabajador}" method="POST" class="formucolor" th:object="${trabajadorForm}">
                 <h3 class="display-5 text-primary text-center">REGISTRO TRABAJADOR</h3>
+				<div class="form-group">
+					<input th:if="${trabajadorForm.codTrabajador != 0}" type="hidden" name="codTrabajador" th:field="*{codTrabajador}" />
+				</div>
                 <div class="form-group">
                     <label for="nombre">Nombre:</label>
                     <input id="nombre" name="nombre" type="text" th:field="*{nombre}" 

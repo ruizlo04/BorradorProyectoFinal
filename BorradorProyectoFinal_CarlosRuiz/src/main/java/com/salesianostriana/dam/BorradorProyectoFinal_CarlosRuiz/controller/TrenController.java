@@ -28,9 +28,14 @@ public class TrenController {
 	private EstacionService estacionService;
 	
 	@GetMapping ("/listarTrenes")
-	public String controlarListaTrenes(@ModelAttribute("trenForm") Tren t,  Model model) {
+	public String controlarListaTrenes(Model model) {
 		model.addAttribute("trenList", trenService.findAll());
 		return "listaTren";
+	}
+	
+	@GetMapping ("/mostrarLogin")
+	public String mostrarLogin(Model model) {
+		return "login";
 	}
 
 	@GetMapping ("/mostrarIndice")
@@ -73,8 +78,6 @@ public class TrenController {
 	        return "redirect:/trenes/listarTrenes";
 	    }
 	}
-
-
 	
 	@PostMapping("/editar/submit")
 	public String procesarFormularioEdit(@ModelAttribute("trenForm") Tren t) {
@@ -84,7 +87,10 @@ public class TrenController {
 	
 	@GetMapping("/borrar/{id}")
 	public String borrar(@PathVariable("id") Long id) {
-		trenService.deleteById(id);
+		Optional <Tren> tren = trenService.findById(id);
+		if(tren.isPresent()) {
+			trenService.delete(tren.get());
+		}
 		return "redirect:/trenes/listarTrenes";
 	}
 }

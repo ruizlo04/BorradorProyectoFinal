@@ -1,6 +1,6 @@
 package com.salesianostriana.dam.BorradorProyectoFinal_CarlosRuiz.model;
 
-import java.util.ArrayList;
+import java.util.ArrayList; 
 import java.util.List;
 
 import jakarta.persistence.CascadeType;
@@ -33,22 +33,31 @@ public class Estacion {
     @Builder.Default
     @OneToMany(
     			mappedBy = "estacion",
-    			fetch = FetchType.EAGER,
-    			cascade = CascadeType.ALL,
-    			orphanRemoval = true
+    			fetch = FetchType.EAGER
     )
 	private List<Tren> listaTrenes = new ArrayList<>();
+	
+	@OneToMany(
+			mappedBy = "estacion",
+			fetch = FetchType.EAGER, 
+			cascade = CascadeType.ALL,
+			orphanRemoval = true
+    )
+	private List<Trabajador> listaTrabajador = new ArrayList<>();
 
-	public Estacion(String nombre, List<Tren> listaTrenes) {
-		super();
-		this.nombre = nombre;
-		this.listaTrenes = listaTrenes;
-	}
-
+	
 	public Estacion(long id, String nombre) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
+	}
+
+
+	public Estacion(String nombre, List<Tren> listaTrenes, List<Trabajador> listaTrabajador) {
+		super();
+		this.nombre = nombre;
+		this.listaTrenes = listaTrenes;
+		this.listaTrabajador = listaTrabajador;
 	}
 	
 	
