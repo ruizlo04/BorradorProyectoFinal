@@ -1,6 +1,6 @@
 package com.salesianostriana.dam.BorradorProyectoFinal_CarlosRuiz.model;
 
-import java.time.LocalDateTime; 
+import java.time.LocalDateTime;  
 import java.util.ArrayList;
 import java.util.List;
 
@@ -46,12 +46,13 @@ public class Tren {
     )
 	private List<Cliente> listaClientes = new ArrayList<>();
 	
-	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.DETACH)
+	@ManyToOne
 	private Estacion estacion;
 	
 	private int numPasajeros;
 	
 	private boolean oferta;
+	
 
 	public Tren(LocalDateTime horario, String tipoTren, List<Cliente> listaClientes) {
 		super();

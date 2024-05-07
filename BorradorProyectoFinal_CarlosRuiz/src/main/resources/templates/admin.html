@@ -42,12 +42,12 @@
 									<td th:text="${trabajador.nombre}">Paco</td>
 									<td th:text="${trabajador.dni}">1A</td>
 									<td th:text="${#numbers.formatDecimal(trabajador.sueldo, 1, 2)+' €'}">$350</td>								
-                                    <td>
-                                        <ul class="action-list p-0 m-0  .list-group-numbered">
-                                            <li><a href="form.html" th:href="@{/form.html}" class="btn btn-primary"><i class="fa fa-pencil-alt"></i></a></li>
-                                            <li><a href="#" class="btn btn-danger"><i class="fa fa-times"></i></a></li>
-                                        </ul>
-                                    </td>
+									<td>
+										<ul class="action-list p-0 m-0  .list-group-numbered">
+											<a href="#" th:href="@{/trabajador/editar/{id}(id=${trabajador.codTrabajador})}" class="btn btn-primary">Editar</a>
+											<a href="#" th:href="@{/trabajador/borrar/{id}(id=${trabajador.codTrabajador})}" class="btn btn-danger">Borrar</a>
+										</ul>
+									</td>
                                 </tr>
                             </tbody>
                         </table>
