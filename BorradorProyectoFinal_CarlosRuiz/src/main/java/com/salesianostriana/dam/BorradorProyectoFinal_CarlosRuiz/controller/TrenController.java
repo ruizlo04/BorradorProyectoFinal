@@ -38,7 +38,7 @@ public class TrenController {
 		return "login";
 	}
 
-	@GetMapping ("/mostrarIndice")
+	@PostMapping ("/mostrarIndice")
 	public String controlarAdmin(Model model) {
 		model.addAttribute("trenList", trenService.findAll());
 		return "index";
