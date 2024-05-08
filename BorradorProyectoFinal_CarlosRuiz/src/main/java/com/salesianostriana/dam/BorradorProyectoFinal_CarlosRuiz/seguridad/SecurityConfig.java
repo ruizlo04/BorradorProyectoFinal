@@ -45,10 +45,12 @@ public class SecurityConfig {
     @Bean
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
     	http.authorizeHttpRequests(
-				(authz) -> authz.requestMatchers("/css/**", "/js/**", "/h2-console/**")
-				.permitAll().anyRequest().authenticated())
+				(authz) -> authz.requestMatchers("/css/**", "/js/**", "/h2-console/**","/img/**")
+				.permitAll()
+				.anyRequest().authenticated())
 			.formLogin((loginz) -> loginz
-					.loginPage("/trenes/mostrarLogin").permitAll());
+					.loginPage("/trenes/mostrarLogin")
+					.successForwardUrl("/trenes/mostrarIndice").permitAll());
     	http.csrf(csrfz -> csrfz.disable());
     	http.headers(headersz -> headersz
     			.frameOptions(frameOptionsz -> frameOptionsz.disable()));
